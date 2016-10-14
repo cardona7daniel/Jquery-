@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Más ejercicios</title>
+</head>
+<body>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+
+<script>
+            var body=$('body');
+
+    body.append('<section class="seccion1" style=" border-bottom: dashed 1px black" ></section>')
+        $('.seccion1').append('<button>fadein</button>' +
+                '<button>slow</button>' +
+                '<button>3ml</button>' +
+                '<div>Uno</div>' +
+                '<div>Dos</div>' +
+                '<div>Trees</div>')
+
+
+            $('div').hide();
+
+
+            function fade() {
+                var a=0, b=0, c=0;
+                    $('button:first').on('click', function () {
+                        if(a==0) {
+                            $('div:first').fadeIn();
+                            a=1;
+                        }else
+                            if(a==1){
+                                $('div:first').fadeOut();
+                                a=0;
+                            }
+
+                    });
+
+                $('button').eq(1).click(function () {
+
+                    if(b==0) {
+                        $('div').eq(1).fadeIn();
+                        b=1;
+                    }else
+                    if(b==1){
+                        $('div').eq(1).fadeOut();
+                        b=0;
+                    }
+                })
+
+                $('button').eq(2).on('click', function () {
+
+                    if(c==0) {
+                        $('div').eq(2).fadeIn();
+                        c=1;
+                    }else
+                    if(c==1){
+                        $('div').eq(2).fadeOut();
+                        c=0;
+                    }
+                })
+            }
+
+            fade();
+
+
+            body.append('<section class="seccion2" style=" border-bottom: dashed 1px black" ></section>')
+            $('.seccion2').append('<button>fadeToggle</button>' +
+                    '<div>Uno</div>')
+
+
+
+            $('div').hide();
+
+    function fadeToggle() {
+        $('.seccion2').find('button:first').on('click', function () {
+            $('.seccion2').find('div:first').fadeToggle();
+        })
+    }
+
+    fadeToggle();
+
+            body.append('<section class="seccion3" style=" border-bottom: dashed 1px black" ></section>')
+            $('.seccion3').append('<button>fadeTo</button>' +
+                    '<div>Uno</div>')
+
+             $('div').hide();
+
+            function fadeTo() {
+                $('.seccion3').find('button').on('click', function () {
+                    $('.seccion3').find('div').fadeTo('slow', 0.50);
+                })
+            }
+
+            fadeTo()
+
+</script>
+
+
+
+
+
+<script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+            ':35729/livereload.js?snipver=1"></' + 'script>')
+</script>
+</body>
+</html>

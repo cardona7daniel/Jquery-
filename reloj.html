@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reloj</title>
+    <!--<link rel="stylesheet" href="reloj.css">-->
+
+</head>
+<body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+<script>
+
+
+    $(function () {
+
+        var body=$('body');
+
+//        body.append($('<p><a>Elemento creado dinámicamente</a></p>'))
+//
+//        $('p').find('a').attr('href','http://www.elclubdelprogramador.com');
+
+            body.append($('<div id="contenedor">' +
+                    '<div id="circulo">' +
+                        '<div class="a">' +
+                        '</div> ' +
+                        '<div class="a">' +
+                        '</div> ' +
+                        '<div class="a">' +
+                        '</div> ' +
+                        '<div class="a">' +
+                        '</div>' +
+                        '<div class="a">' +
+                        '</div>' +
+                        '<div class="a">' +
+                        '</div>' +
+                        '<div class="a">' +
+                        '</div>' +
+                        '<div class="a">' +
+                        '</div>' +
+                        '<div class="a">' +
+                        '</div>' +
+                        '<div class="a">' +
+                        '</div>' +
+                        '<div class="a">' +
+                        '</div>' +
+                        '<div class="a">' +
+                        '</div>' +
+
+                    '<div class="p">' +
+                    '<div class="punto">' +
+                    '</div>' +
+                    '</div>' +
+
+                        '<div class="x">' +
+                            '<div class="flecha1">' +
+                            '</div>' +
+                        '</div>' +
+
+                        '<div class="y">' +
+                            '<div class="flecha2">' +
+                            '</div>' +
+                        '</div>' +
+
+                    '<div class="z">' +
+                    '<div class="flecha3">' +
+                    '</div>' +
+                    '</div>' +
+                            '</div>' +
+                    '</div>'));
+
+            var circulo=$('#circulo');
+
+            body.css({
+                'background': '#607d8b'
+            })
+
+        body.find('#contenedor').css({
+
+            'width': '100%',
+            'height': '600px',
+            'display': 'flex',
+            'justify-content': 'center',
+            'align-items': 'center'
+        });
+
+            circulo.css({
+                "width": '400px',
+                'height': '400px',
+                'background-color': '#eceff1',
+                'border-radius': '50%',
+                'border': '15px solid black',
+                'position': 'relative'
+              });
+
+
+
+        var rayitas=$('.a');
+        rayitas.css({
+
+            'background-color': 'black',
+            'height': '5px',
+            'width': '8%',
+            'position': 'absolute',
+            'top': '50%'
+//            'left': '0'
+//            'right': '90deg',
+
+        });
+
+
+        var a=0;
+        rayitas.each(function (i, v) {
+
+
+            $(v).css('transform', 'rotate('+a+'deg)')//.css('left', left+'%');
+            a=a+30;
+
+            if(i>=0 || i<=3){
+                if(i==1){
+                    $(v).css('left', '15'+'px').css('top', '115'+'px')
+                }
+                if(i==2){
+                    $(v).css('left', '80'+'px').css('top', '45'+'px')
+                }
+                if(i==3){
+                    $(v).css('left', '180'+'px').css('top', '15'+'px')
+                }
+            }
+
+            if(i>=4||i<=6){
+                if(i==4){
+                    $(v).css('right', '80'+'px').css('top', '45'+'px')
+                }
+
+                if(i==5){
+                    $(v).css('right', '15'+'px').css('top', '115'+'px')
+                }
+
+                if(i==6){
+                    $(v).css('right', '0'+'px').css('top', '205'+'px')
+                }
+
+            }
+
+            if(i>=7||i<=9){
+                if(i==7){
+                    $(v).css('right', '15'+'px').css('top', '280'+'px')
+                }
+
+                if(i==8){
+                    $(v).css('right', '90'+'px').css('top', '360'+'px')
+                }
+//
+                if(i==9){
+                    $(v).css('right', '190'+'px').css('top', '385'+'px')
+                }
+
+            }
+
+            if(i>=10||i<=11){
+                if(i==10){
+                    $(v).css('left', '90'+'px').css('top', '360'+'px')
+                }
+
+                if(i==11){
+                    $(v).css('left', '15'+'px').css('top', '280'+'px')
+                }
+           }
+
+        });
+
+        $('.x, .y, .z').css({
+            'width': '100%',
+//            'border': '1px dashed green',
+            'position': 'absolute',
+            'top': '50%',
+//            'left': '0%',
+            'transform': 'rotate(270deg)'
+        });
+
+        $('.p').css({
+            'position': 'absolute',
+            'top': '50%',
+            'width': '100%'
+
+        })
+
+        $('.punto').css({
+            'position': 'absolute',
+            'top': '50%',
+            'left': '50%',
+            'border-radius': '50%',
+            'background-color': 'black',
+            'width': '5px',
+            'height': '5px'
+        })
+
+        var b=276, c=270, d=270;
+
+
+
+        $('.flecha1').css({
+
+            'background-color': 'red',
+            'height': '6px',
+            'width': '40%',
+            'border-radius': '20px',
+            'position': 'absolute',
+            'top': '50%',
+            'left': '50%'
+        });
+
+
+
+        $('.flecha2').css({
+            'background-color': 'blue',
+            'height': '5px',
+            'width': '30%',
+            'border-radius': '20px',
+            'position': 'absolute',
+            'top': '50%',
+            'left': '50%'
+
+        });
+
+        $('.flecha3').css({
+            'background-color': 'green',
+            'height': '5px',
+            'width': '50%',
+            'border-radius': '20px',
+            'position': 'absolute',
+            'top': '50%',
+            'left': '50%'
+        });
+
+
+        setInterval(function () {
+            $('.z').css('transform', 'rotate('+(b)+'deg)');
+
+            b+=6;
+        },1000);
+
+
+        setInterval(function () {
+            c+=6;
+            $('.x').css('transform', 'rotate('+(c)+'deg)');
+
+        },60000);
+
+        setInterval(function () {
+            d+=6;
+            $('.y').css('transform', 'rotate('+(d)+'deg)');
+
+        },3600000);
+
+
+
+
+
+
+
+
+
+
+
+//        $('#flecha2').css({
+//            'background-color': 'black',
+//            'height': '2px',
+//            'width': '5%',
+//            'position': 'absolute',
+//            'top': '50%',
+//            'right': '0'
+////            'right': '90deg',
+////            'transform': 'rotate(90deg)'
+//        });
+//
+//        $('#flecha3').css({
+//            'background-color': 'black',
+//            'height': '2px',
+//            'width': '5%',
+//            'position': 'absolute',
+//            'top': '10px',
+//            'left': '50%',
+////            'right': '90deg',
+//            'transform': 'rotate(90deg)'
+//        });
+//
+//        $('#flecha4').css({
+//            'background-color': 'black',
+//            'height': '2px',
+//            'width': '5%',
+//            'position': 'absolute',
+//            'bottom': '10px',
+//            'left': '50%',
+////            'right': '90deg',
+//            'transform': 'rotate(270deg)'
+//        });
+//
+//        $('#flecha5').css({
+//            'background-color': 'black',
+//            'height': '2px',
+//            'width': '5%',
+//            'position': 'absolute',
+//            'top': '12.5%',
+////            'left': '50%',
+//            'right': '25%',
+//            'transform': 'rotate(-60deg)'
+//        });
+//
+//        $('#flecha6').css({
+//            'background-color': 'black',
+//            'height': '2px',
+//            'width': '5%',
+//            'position': 'absolute',
+//            'top': '25%',
+////            'left': '50%',
+//            'right': '12.5%',
+//            'transform': 'rotate(-30deg)'
+//        });
+
+
+
+
+
+
+
+
+
+//        var div_ancho = $("#circulo").width();
+//        var div_alto = $("#circulo").height();
+//        alert(div_ancho);
+//        alert(div_alto);
+
+//            var punto=circulo.append($('<div>', {html: '.'}));
+
+//            punto.css({
+//                'position': 'absolute',
+//                'top': '200',
+//                'left': '200',
+//                'font-size': '50px'
+//            })
+
+    }); // fin jquery
+
+
+
+
+
+
+
+
+</script>
+<script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+            ':35729/livereload.js?snipver=1"></' + 'script>')
+</script>
+</body>
+</html>

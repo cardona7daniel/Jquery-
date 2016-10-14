@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>parte3</title>
+</head>
+<body>
+<section style="display: flex; justify-content: center">
+    <button>boton</button>
+    <div style="background-color: aqua; width: 100px; height: 100px"></div>
+
+</section>
+
+<section id="2">
+    <button>text</button>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam assumenda blanditiis cupiditate dolorem esse ex, fuga fugiat harum illum in iste modi obcaecati odio optio pariatur quo rem soluta?</p>
+    <button>html</button>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur fugiat incidunt molestiae odit sit. Dolores earum fugit illum laborum, libero mollitia officiis quam unde voluptatum! Adipisci incidunt quod voluptatem? Nam?</p>
+    <button>value</button>
+    <input type="text" value="kasjdhasjkdhjkashdjkashkjd"/>
+</section>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+<script>
+
+    $('button:first').click(function () {
+        $('div').css({
+            'transform': 'translateY(250px) scale(2)',
+            'transition': '1s'
+        })
+    })
+
+
+    $('#2').find('button').eq(0).click(function () {
+        $('p').eq(0).text('Hola mundo')
+    });
+
+    $('#2').find('button').eq(1).click(function () {
+        $('p').eq(1).html('Hola mundo')
+    });
+
+    $('#2').find('button').eq(2).click(function () {
+        $('input[type=text]').attr('value').value('Hola mundo')
+    });
+
+</script>
+
+
+<script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+            ':35729/livereload.js?snipver=1"></' + 'script>')
+</script>
+</body>
+</html>

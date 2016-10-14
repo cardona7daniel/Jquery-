@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ejercicio1, 2, 3</title>
+</head>
+<body>
+<header id="encabezado">
+    Hello!!
+</header>
+
+<section class="secciones" id="seccion">
+
+    <div class="botones">
+        <button id="boton" class="boton">Boton</button>
+        <button id="boton2" class="boton">Boton2</button>
+        <button id="boton3" class="boton">Ocultar</button>
+        <button id="boton4" class="boton">First</button>
+
+
+    </div>
+
+    <article id="articulo" class="articulo">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias cupiditate, delectus dolorem eius, enim laboriosam laudantium non omnis possimus quasi qui, reiciendis             sapiente sed sit unde ut veniam voluptatem!
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi dolor enim explicabo necessitatibus nobis obcaecati quam tempore. Consequatur eius itaque natus             nemo. Dolores incidunt officia qui ratione tempora voluptatum.
+        </p>
+    </article>
+
+
+
+</section>
+
+<section class="secciones" id="seccion2">
+
+    <button id="boton5" class="boton">Ocultar Primero</button>
+    <button id="boton6" class="boton">Ocultar Todos</button>
+
+    <h2>Lista1:</h2>
+    <ul>
+        <li>Tortilla</li>
+        <li>Jamón</li>
+        <li>Queso</li>
+    </ul>
+
+
+    <h2>Lista2:</h2>
+    <ul>
+        <li>Coca Cola</li>
+        <li>Leche</li>
+        <li>Té</li>
+    </ul>
+</section>
+
+<section class="secciones" id="seccion3">
+    <button id="boton7" class="boton">Ocultar enlaces</button>
+
+    <h3>Enlaces</h3>
+    <a href="https://www.google.com.co/">Enlace 1</a>
+    <a href="https://www.google.com.co/">Enlace 2</a>
+</section>
+
+<section class="secciones" id="seccion4">
+    <div>
+        <a href="https://www.google.com.co/" target="_self">Enlace 1</a>
+        <button id="boton8" class="boton">Ocultar</button>
+    </div>
+
+    <div>
+        <a href="https://www.google.com.co/" target="_blank">Enlace 2</a>
+        <button id="boton9" class="boton" >Ocultar</button>
+    </div>
+</section>
+
+<section class="secciones" id="seccion5">
+    <h2>Tabla</h2>
+
+
+
+    <table style="border: 1px solid black">
+        <thead >
+
+        <tr >
+            <th >Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr>
+            <td>Carlos</td>
+            <td>Jaramillo</td>
+            <td>2100185</td>
+        </tr>
+        <tr>
+            <td>Daniel</td>
+            <td>Cardona</td>
+            <td>123</td>
+        </tr>
+        <tr>
+            <td>David</td>
+            <td>Ruiz</td>
+            <td>321231</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="seccion6" class="secciones">
+    <h2>Doble click para eliminar el párrafo</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, eos hic, illum nemo pariatur perspiciatis porro provident quam qui quis rem sed voluptate? Dignissimos      eaque mollitia nobis quae quam quis.
+    </p>
+</section>
+
+<section id="seccion7" class="secciones" >
+</section>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script>
+
+    $('#encabezado').css({
+        'font-size': '50px',
+        'text-align': 'center',
+        'color': 'white',
+        'background-color':'black',
+        'margin-bottom': '30px'
+    })
+
+    $('.botones').css({
+        'text-align': 'center'
+    })
+
+    $('.boton').css({
+        'background-color':'black',
+        'color': 'white',
+        'font-size': '20px',
+        'text-align': 'center',
+        'border-radius': '20px'
+
+    })
+
+    $('.secciones').css({
+        'border-bottom': 'solid 1px black',
+        'margin-bottom': '30px'
+    })
+
+    $('#boton').on('click', function(){
+        $('#seccion').hide('slow', function () {
+
+        });
+
+    })
+
+    var $boton2=$('#boton2');
+
+    $boton2.on('click', function(){
+
+          $(this).hide('slow');
+    })
+
+    $('#boton3').on('click', function () {
+        $('#articulo')
+                .find('p')
+                .eq(0)
+                .hide('slow')
+    })
+
+    $('#boton4').on('click', function () {
+        $('#articulo')
+                .find('p:first')
+                .hide('slow')
+    })
+
+    $('#boton5').on('click', function () {
+        $('#seccion2').find('li:first').hide('slow');
+    })
+
+    $('#boton6').on('click', function () {
+        $('#seccion2').find('li:first-child').hide('slow');
+    })
+
+    $('#boton7').on('click', function () {
+        $('#seccion3')
+                .find('a')
+                .hide('slow')
+    })
+
+    $('#boton8').on('click', function () {
+        $('[target=_self]').hide(1500);
+    })
+
+    $('#boton9').on('click', function () {
+        $('[target=_blank]').hide('slow');
+    })
+
+
+    function filas(){
+    $('tbody')
+            .find('tr:even')          // filas pares
+            .css({
+                "background-color":"red"
+            })
+
+    $('tbody')
+            .find('tr:odd')          // filas impares
+            .css({
+                "background-color":"green"
+            })
+}
+//        filas();
+
+    function filasConEach() {
+    $('tbody').find('tr').each(function (i, v) {
+        if(i%2==0 || i==0){
+            $(v).css({
+                "background-color":"red"
+            })
+        }else
+        {
+            $(v).css({
+                "background-color":"green"
+            })
+        }
+    })
+
+}
+        filasConEach();
+
+    var seccion6=$('#seccion6').find('p');
+    seccion6.css({
+        'color': 'blue',
+        'cursor': 'pointer'
+    })
+    seccion6.on('dblclick', function () {
+        $(this)
+                .css({
+                    'color': 'red'
+                })
+                .hide('slow');
+    })
+    //seccion6.show()
+
+    seccion6.hover(function () {
+        console.log("Hola");
+    },function () {
+        console.log("shao");
+    });
+
+
+
+    $('#seccion7').append('<input type="text">');
+
+    var $texto=$('input[type=text]')
+    $texto.focus(function () {
+        $(this).css('background', 'green')
+    })
+
+    $texto.blur(function () {
+        $(this).css('background', 'red')
+    })
+
+    $('body').append('<section id="seccion8" class="secciones">' +
+            '<button class="boton">Click me!</button><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam commodi eveniet facilis illo, iusto ratione voluptates. Ad, ' +
+            'asperiores autem dolor eius illo perferendis quod? Culpa inventore ipsam nesciunt saepe tenetur!</p></section>')
+
+    $('#seccion8').find('button').on('click', function () {
+        $('#seccion8').find('p').hide('fast');
+    })
+
+
+
+
+</script>
+
+<script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+            ':35729/livereload.js?snipver=1"></' + 'script>')
+</script>
+</body>
+</html>
